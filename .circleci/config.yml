@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   snyk: snyk/snyk@0.0.8
+  cypress: cypress-io/cypress@1
 jobs:
   build:
     docker:
@@ -20,6 +21,7 @@ jobs:
       - run: yarn lint
       - run: yarn size
       - run: yarn test
+      - run: yarn ci:cypress-run
       - snyk/scan:
           fail-on-issues: false
           monitor-on-build: false

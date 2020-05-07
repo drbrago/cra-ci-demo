@@ -12,7 +12,9 @@
   },
   "devDependencies": {
     "@size-limit/preset-big-lib": "^4.5.0",
-    "size-limit": "^4.5.0"
+    "cypress": "^4.5.0",
+    "size-limit": "^4.5.0",
+    "start-server-and-test": "^1.11.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -20,7 +22,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.js --max-warnings 0",
-    "size": "yarn build && size-limit"
+    "size": "yarn build && size-limit",
+    "cypress:run": "cypress run --record --key=${CYPRESS_RECORD_KEY}",
+    "ci:cypress-run": "start-server-and-test start http://localhost:3000 cypress:run"
   },
   "eslintConfig": {
     "extends": "react-app"

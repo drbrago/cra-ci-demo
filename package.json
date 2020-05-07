@@ -10,16 +10,27 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },
+  "devDependencies": {
+    "@size-limit/preset-big-lib": "^4.5.0",
+    "size-limit": "^4.5.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint src/**/*.js --max-warnings 0"
+    "lint": "eslint src/**/*.js --max-warnings 0",
+    "size": "yarn build && size-limit"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
+  "size-limit": [
+    {
+      "limit": "1 s",
+      "path": "build/static/**/*.{js,css,svg,woff,woff2,png,ttf,html}"
+    }
+  ],
   "browserslist": {
     "production": [
       ">0.2%",

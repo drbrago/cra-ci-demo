@@ -22,8 +22,10 @@ jobs:
       - run: yarn size
       - run: yarn test
       - cypress/run:
+          yarn: true
           start: yarn start
           wait-on: 'http://localhost:3000'
+          no-workspace: true
       - snyk/scan:
           fail-on-issues: false
           monitor-on-build: false

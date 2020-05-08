@@ -25,13 +25,7 @@ jobs:
           fail-on-issues: false
           monitor-on-build: false
           severity-threshold: high
-workflows: 
-  e2e_tests:
-    jobs:
-      - cypress/install
       - cypress/run:
-          requires:
-              - cypress/install
           yarn: true
           start: yarn start
           wait-on: 'http://localhost:3000'

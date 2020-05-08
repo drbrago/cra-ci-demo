@@ -27,8 +27,11 @@ jobs:
           severity-threshold: high
 workflows: 
   e2e_tests:
-    jobs: 
+    jobs:
+      - cypress/install
       - cypress/run:
+          requires:
+              - cypress/install
           yarn: true
           start: yarn start
           wait-on: 'http://localhost:3000'

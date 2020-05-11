@@ -46,6 +46,7 @@ workflows:
   Build:
     jobs:
       - build
+      - cypress/install
       - cypress/run:
           yarn: true
           start: yarn start

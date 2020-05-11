@@ -53,8 +53,6 @@ workflows:
           yarn: true
           start: yarn start
           wait-on: 'http://localhost:3000'
-          no-workspace: true
-          working_directory: ~/repo
           record: true
           requires:
            - cypress/install

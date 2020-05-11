@@ -47,8 +47,8 @@ workflows:
     jobs:
       - build
       - cypress/install:
-          requires:
-            - build
+          yarn: true
+          build: yarn build
       - cypress/run:
           yarn: true
           start: yarn start
@@ -57,5 +57,5 @@ workflows:
           working_directory: ~/repo
           record: true
           requires:
-           - build
+           - cypress/install
       

@@ -42,11 +42,11 @@ jobs:
           fail-on-issues: false
           monitor-on-build: false
           severity-threshold: high
-      - cypress/run:
-          yarn: true
-          start: yarn start
-          wait-on: 'http://localhost:3000'
-          no-workspace: true
-          working_directory: ~/repo
-          record: true
+      #- cypress/run:
+      #    yarn: true
+      #    start: yarn start
+      #    wait-on: 'http://localhost:3000'
+      #    no-workspace: true
+      #    working_directory: ~/repo
+      #    record: true
       

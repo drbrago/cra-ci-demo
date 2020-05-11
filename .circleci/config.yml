@@ -3,7 +3,7 @@ orbs:
   snyk: snyk/snyk@0.0.8
   cypress: cypress-io/cypress@1.21.0
 jobs:
-  build:
+  build-and-test:
     docker:
       - image: circleci/node:10.16.3-browsers
     working_directory: ~/repo
@@ -45,14 +45,15 @@ jobs:
 workflows:
   Build:
     jobs:
-      - build
+      - build-and-test
       - cypress/install:
           yarn: true
           build: yarn build
       - cypress/run:
+          requires:
+           - cypress/install
           yarn: true
           start: yarn start
           record: true
-          requires:
-           - cypress/install
+          wait-on: 'http-get://localhost:3000'
       

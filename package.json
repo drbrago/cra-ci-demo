@@ -8,7 +8,8 @@
     "@testing-library/user-event": "^7.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "@size-limit/preset-big-lib": "^4.5.0",
@@ -24,7 +25,9 @@
     "lint": "eslint src/**/*.js --max-warnings 0",
     "size": "yarn build && size-limit",
     "cypress:run": "cypress run --record --key=${CYPRESS_RECORD_KEY}",
-    "ci:cypress-run": "start-server-and-test start http://localhost:3000 cypress:run"
+    "ci:cypress-run": "start-server-and-test start http://localhost:3000 cypress:run",
+    "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -46,5 +49,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "snyk": true
 }
